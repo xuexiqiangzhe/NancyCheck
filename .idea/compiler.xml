@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="xmlparserservice" />
+        <module name="xmlparserweb" />
+        <module name="XmlParserConsumer" />
+        <module name="xmlparsercontroller" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="XmlParser" target="1.8" />
+      <module name="XmlParserConsumer" target="8" />
+      <module name="XmlParserController" target="1.8" />
+      <module name="XmlParserService" target="1.8" />
+      <module name="XmlParserStart" target="8" />
+      <module name="XmlParserWeb" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="XmlParser" options="-parameters" />
+      <module name="XmlParserConsumer" options="-parameters" />
+      <module name="XmlParserController" options="-parameters" />
+      <module name="XmlParserService" options="-parameters" />
+      <module name="XmlParserStart" options="-parameters" />
+      <module name="XmlParserWeb" options="-parameters" />
+      <module name="xmlparser" options="-parameters" />
+      <module name="xmlparsercontroller" options="-parameters" />
+      <module name="xmlparserservice" options="-parameters" />
+      <module name="xmlparserweb" options="-parameters" />
+    </option>
+  </component>
+</project>
