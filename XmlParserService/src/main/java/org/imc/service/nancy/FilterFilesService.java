@@ -101,11 +101,11 @@ public class FilterFilesService {
         }
     }
     private Boolean isOk(String doc) {
-        if(doc==null||doc.length()<13){
+        if(doc==null||doc.length()<15){
             return false;
         }
-        String head = doc.substring(0,13);
-        if(!"***ChaptName:".equals(head)){
+        String head = doc.substring(0,15);
+        if(!"***ChapterName:".equals(head)){
             return false;
         }
         int i = 14;
