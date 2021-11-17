@@ -10,73 +10,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="解析完毕">
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/HdrHistogram-2.1.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/LatencyUtils-2.0.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/activation-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/commons-codec-1.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/dom4j-1.6.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/dubbo-2.6.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/dubbo-spring-boot-starter-2.0.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/hamcrest-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/hamcrest-core-2.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-annotations-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-core-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-databind-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-datatype-jdk8-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-datatype-jsr310-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jackson-module-parameter-names-2.12.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jakarta.annotation-api-1.3.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/javassist-3.20.0-GA.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jline-0.9.94.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/jul-to-slf4j-1.7.32.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/junit-4.13.2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/log4j-1.2.15.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/log4j-api-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/log4j-to-slf4j-2.14.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/logback-classic-1.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/logback-core-1.2.5.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/mail-1.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/micrometer-core-1.7.3.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/netty-3.2.5.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/netty-3.7.0.Final.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/poi-3.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/poi-ooxml-3.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/poi-ooxml-schemas-3.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/poi-scratchpad-3.8.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/slf4j-api-1.7.32.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/slf4j-log4j12-1.7.32.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/snakeyaml-1.28.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-aop-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-beans-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-actuator-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-actuator-autoconfigure-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-autoconfigure-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-actuator-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-json-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-logging-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-tomcat-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-boot-starter-web-2.5.4.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-context-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-core-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-expression-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-jcl-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-web-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/spring-webmvc-5.3.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/stax-api-1.0.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/surefire-api-2.22.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/surefire-booter-2.22.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/surefire-logger-api-2.22.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/tomcat-embed-core-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/tomcat-embed-el-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/tomcat-embed-websocket-9.0.52.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/xml-apis-1.0.b2.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/xmlbeans-2.3.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/xmlparserweb.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/zkclient-0.9.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar/zookeeper-3.4.6.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/xmlparserweb_jar2/xmlparserweb.jar" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CheckFilesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CombineFileService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/NumberTool.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,10 +77,10 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP" />
+      <recent name="C:\Users\小朋友留德\Desktop\过滤APP\检查" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\out\artifacts\xmlparserweb_jar" />
       <recent name="C:\Users\小朋友留德\Desktop\XmlParser\XmlParserService\src\main\resources" />
       <recent name="C:\Users\小朋友留德\Desktop\XmlParser" />
-      <recent name="C:\Users\小朋友留德\Desktop\XmlParser\XmlParserController\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\out\artifacts\xmlparserweb_jar" />
@@ -159,11 +97,11 @@
       <recent name="org.imc.service" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.imc.tools" />
+      <recent name="org.imc.service.nancy" />
       <recent name="nancy.service" />
       <recent name="org.imc.dubbo.impl" />
       <recent name="org.imc.dubbo" />
-      <recent name="org.imc.iolink.model" />
-      <recent name="org.imc.iolink.enums" />
     </key>
   </component>
   <component name="RunManager" selected="Spring Boot.XmlParserWebApplication">
@@ -295,7 +233,9 @@
       <workItem from="1636799141616" duration="4193000" />
       <workItem from="1636803394530" duration="1679000" />
       <workItem from="1636948752967" duration="11936000" />
-      <workItem from="1636974463980" duration="937000" />
+      <workItem from="1636974463980" duration="1201000" />
+      <workItem from="1637126971586" duration="661000" />
+      <workItem from="1637133646732" duration="5854000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -479,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1636974954170</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="解析完毕">
+      <created>1636975644194</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1636975644194</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
