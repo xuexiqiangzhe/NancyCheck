@@ -17,7 +17,7 @@ public class CombineFileService {
 
     private List<String> files = new LinkedList<>();
     private String res = "";
-    private Map<Integer,String> fileMap = new LinkedHashMap<>();
+    private Map<Integer,String> fileMap = new TreeMap<>();
     public void combine(String path) {
         log.info("开始记录文件");
         recordFile(path);

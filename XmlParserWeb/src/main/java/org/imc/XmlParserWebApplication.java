@@ -1,17 +1,12 @@
 package org.imc;
 
-import com.alibaba.dubbo.spring.boot.annotation.EnableDubboConfiguration;
-import org.imc.service.nancy.CheckFilesService;
 import org.imc.service.nancy.CombineFileService;
-import org.imc.service.nancy.FilterFilesService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
-@EnableDubboConfiguration
 @SpringBootApplication
 @ComponentScan(basePackages = {"org.imc.*"})
 public class XmlParserWebApplication {

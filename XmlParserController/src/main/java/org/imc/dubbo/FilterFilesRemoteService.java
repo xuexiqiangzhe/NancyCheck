@@ -1,8 +1,5 @@
 package org.imc.dubbo;
 
-
-import javax.websocket.server.PathParam;
-
 /**
  * Parse Xml File Service Interface
  *
