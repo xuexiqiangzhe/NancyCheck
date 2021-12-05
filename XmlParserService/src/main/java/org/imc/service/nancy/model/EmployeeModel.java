@@ -11,4 +11,5 @@ import java.util.Map;
 @Data
 public class EmployeeModel {
    private Map<String,NovalModel> novalModelMap = new HashMap<>();
+   private Double totalAccount = 0.0;
 }
