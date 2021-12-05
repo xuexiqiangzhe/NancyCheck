@@ -1,5 +1,6 @@
 package org.imc.service.nancy.excel;
 
+import org.apache.poi.ss.util.NumberToTextConverter;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
@@ -34,7 +35,7 @@ public class ExcelData {
             //获取sheet
             sheet = sheets.getSheet(sheetName);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(filePath+"失败");
         }
     }
 
@@ -49,6 +50,14 @@ public class ExcelData {
         String cell = row1.getCell(column).toString();
         return cell;
     }
+
+    public String getExcelNumberByIndex(int row,int column){
+        XSSFRow row1 = sheet.getRow(row);
+        String cell = NumberToTextConverter.toText(row1.getCell(column).getNumericCellValue());
+        return cell;
+    }
+
+
 
     /**
      * 根据某一列值为“******”的这一行，来获取该行第x列的值

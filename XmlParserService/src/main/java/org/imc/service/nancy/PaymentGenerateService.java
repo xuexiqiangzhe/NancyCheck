@@ -15,6 +15,7 @@ import org.imc.tools.NumberTool;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
+import java.math.BigDecimal;
 import java.util.*;
 
 @Component
@@ -37,30 +38,38 @@ public class PaymentGenerateService {
             log.info("已记录文件:"+file);
         }
 
+        File outputDirectory = new File("结果");
+        if(!outputDirectory.isDirectory()){
+            outputDirectory.mkdir();
+        }
         for(String file:files){
             ExcelData sheet = new ExcelData(file, "W2成本副本");
             // 1.翻译
-            int rows = sheet.getNumberOfRows();
-            buildTranslator(translatorModelMap, sheet, rows);
-            // 2.编辑
-            buildEditor(editorModelMap,sheet,rows);
-            // 3.审校
-            buildQuality(qualityModelMap,sheet,rows);
+            try{
+                int rows = sheet.getNumberOfRows();
+                buildTranslator(translatorModelMap, sheet, rows);
+                // 2.编辑
+                buildEditor(editorModelMap,sheet,rows);
+                // 3.审校
+                buildQuality(qualityModelMap,sheet,rows);
+            }catch (Exception e){
+                System.out.println(file+"挂");
+                throw e;
+            }
 
-            calculatorSum(translatorModelMap);
-            calculatorSum(editorModelMap);
-            calculatorSum(qualityModelMap);
-
-            buildExcels(translatorModelMap,editorModelMap,qualityModelMap);
-            buildExcels2(editorModelMap,qualityModelMap);
-            buildExcels3(qualityModelMap);
-            String cell2 = sheet.getExcelDateByIndex(1, 3);
 //        //根据第3列值为“customer23”的这一行，来获取该行第2列的值
 //        String cell3 = sheet1.getCellByCaseName("customer23", 2,1);
 //        System.out.println(cell2);
 //        System.out.println(cell3);
         }
+        calculatorSum(translatorModelMap);
+        calculatorSum(editorModelMap);
+        calculatorSum(qualityModelMap);
 
+        buildExcels(translatorModelMap,editorModelMap,qualityModelMap);
+        buildExcels2(editorModelMap,qualityModelMap);
+        buildExcels3(qualityModelMap);
+        System.out.println("完事");
     }
 
     private void calculatorSum(Map<String, EmployeeModel> modelMap){
@@ -69,7 +78,8 @@ public class PaymentGenerateService {
             EmployeeModel employeeModel = entry.getValue();
             for (Map.Entry<String, NovalModel> subEntry:employeeModel.getNovalModelMap().entrySet()) {
                 NovalModel novalModel = subEntry.getValue();
-                employeeModel.setTotalAccount(employeeModel.getTotalAccount()+novalModel.getAccount());
+
+                employeeModel.setTotalAccount(addTwoDouble(employeeModel.getTotalAccount(),novalModel.getAccount()));
             }
         }
     }
@@ -109,12 +119,13 @@ public class PaymentGenerateService {
         }
     }
     private void buildExcelForEmployee(String name, EmployeeModel employeeModel) {
-        String fileDir = name +".xlsx";
+        String fileDir = "结果\\"+name +".xlsx";
         File file = new File(fileDir);
-
+        Boolean isNewFile = false;
         if (!file.exists()){
             CreateExcelFile.createExcelXlsx(fileDir,"结算", new String[]{"姓名", "总译费"});
             file = new File(fileDir);
+            isNewFile=true;
         }
 
         //创建workbook
@@ -130,11 +141,13 @@ public class PaymentGenerateService {
             int columnCount = sheet.getRow(0).getLastCellNum();
 
             // 翻译人
-            XSSFRow newRow=sheet.createRow(++rowCount);
-            XSSFCell nameCell = newRow.createCell(0);
-            XSSFCell totalAccountCell = newRow.createCell(1);
-            nameCell.setCellValue(name);
-            totalAccountCell.setCellValue(employeeModel.getTotalAccount());
+            if(isNewFile){
+                XSSFRow newRow=sheet.createRow(++rowCount);
+                XSSFCell nameCell = newRow.createCell(0);
+                XSSFCell totalAccountCell = newRow.createCell(1);
+                nameCell.setCellValue(name);
+                totalAccountCell.setCellValue(employeeModel.getTotalAccount());
+            }
 
             for (Map.Entry<String, NovalModel> subEntry: employeeModel.getNovalModelMap().entrySet()) {
                 String novalName = subEntry.getKey();
@@ -200,6 +213,12 @@ public class PaymentGenerateService {
         }
     }
 
+    private Double addTwoDouble(Double d1,Double d2){
+        BigDecimal b1=new BigDecimal(Double.toString(d1));
+        BigDecimal b2=new BigDecimal(Double.toString(d2));
+        return b1.add(b2).doubleValue();
+    }
+
     private void buildTranslator(Map<String, EmployeeModel> translatorModelMap, ExcelData sheet, int rows) {
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
@@ -210,6 +229,10 @@ public class PaymentGenerateService {
             // 当前人员
             int y = 19;
             String name = sheet.getExcelDateByIndex(x, y);
+            if("无".equals(name)||"".equals(name)||"0.0".equals(name)){
+                continue;
+            }
+
             if(!translatorModelMap.containsKey(name)){
                 translatorModelMap.put(name,new EmployeeModel());
             }
@@ -228,17 +251,17 @@ public class PaymentGenerateService {
             Map<String,String> chapterDetail  = novalDetail.get(chapterName).getChapterDetailMap();
 
             // 一章四个属性
-            String wordCount = sheet.getExcelDateByIndex(x, 7);
+            String wordCount = sheet.getExcelNumberByIndex(x, 7);
             chapterDetail.put("wordCount",wordCount);
-            novalModelMap.get(novalName).setWordCount(novalModelMap.get(novalName).getWordCount()+Double.parseDouble(wordCount));
-            String chapterCount = sheet.getExcelDateByIndex(x, 8);
+            novalModelMap.get(novalName).setWordCount(addTwoDouble(novalModelMap.get(novalName).getWordCount(),Double.parseDouble(wordCount)));
+            String chapterCount = sheet.getExcelNumberByIndex(x, 8);
             chapterDetail.put("chapterCount",chapterCount);
-            novalModelMap.get(novalName).setChapterCount(novalModelMap.get(novalName).getChapterCount()+Double.parseDouble(chapterCount));
-            String singlePrice = sheet.getExcelDateByIndex(x, 20);
+            novalModelMap.get(novalName).setChapterCount(addTwoDouble(novalModelMap.get(novalName).getChapterCount(),Double.parseDouble(chapterCount)));
+            String singlePrice = sheet.getExcelNumberByIndex(x, 20);
             chapterDetail.put("singlePrice",singlePrice);
-            String account = sheet.getExcelDateByIndex(x, 22);
+            String account = sheet.getExcelNumberByIndex(x, 22);
             chapterDetail.put("account",account);
-            novalModelMap.get(novalName).setAccount(novalModelMap.get(novalName).getAccount()+Double.parseDouble(account));
+            novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
         }
     }
 
@@ -253,7 +276,7 @@ public class PaymentGenerateService {
             // 当前人员
             int y = 26;
             String name = sheet.getExcelDateByIndex(x, y);
-            if("无".equals(name)){
+            if("无".equals(name)||"".equals(name)||"0.0".equals(name)){
                 continue;
             }
             if(!editorMap.containsKey(name)){
@@ -274,17 +297,17 @@ public class PaymentGenerateService {
             Map<String,String> chapterDetail  = novalDetail.get(chapterName).getChapterDetailMap();
 
             // 一章四个属性
-            String wordCount = sheet.getExcelDateByIndex(x, 7);
+            String wordCount = sheet.getExcelNumberByIndex(x, 7);
             chapterDetail.put("wordCount",wordCount);
-            novalModelMap.get(novalName).setWordCount(novalModelMap.get(novalName).getWordCount()+Double.parseDouble(wordCount));
-            String chapterCount = sheet.getExcelDateByIndex(x, 8);
+            novalModelMap.get(novalName).setWordCount(addTwoDouble(novalModelMap.get(novalName).getWordCount(),Double.parseDouble(wordCount)));
+            String chapterCount = sheet.getExcelNumberByIndex(x, 8);
             chapterDetail.put("chapterCount",chapterCount);
-            novalModelMap.get(novalName).setChapterCount(novalModelMap.get(novalName).getChapterCount()+Double.parseDouble(chapterCount));
-            String singlePrice = sheet.getExcelDateByIndex(x, 27);
+            novalModelMap.get(novalName).setChapterCount(addTwoDouble(novalModelMap.get(novalName).getChapterCount(),Double.parseDouble(chapterCount)));
+            String singlePrice = sheet.getExcelNumberByIndex(x, 27);
             chapterDetail.put("singlePrice",singlePrice);
-            String account = sheet.getExcelDateByIndex(x, 29);
+            String account = sheet.getExcelNumberByIndex(x, 29);
             chapterDetail.put("account",account);
-            novalModelMap.get(novalName).setAccount(novalModelMap.get(novalName).getAccount()+Double.parseDouble(account));
+            novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
         }
     }
 
@@ -299,9 +322,10 @@ public class PaymentGenerateService {
             // 当前人员
             int y = 33;
             String name = sheet.getExcelDateByIndex(x, y);
-            if("无".equals(name)){
+            if("无".equals(name)||"".equals(name)||"0.0".equals(name)){
                 continue;
             }
+
             if(!qualityMap.containsKey(name)){
                 qualityMap.put(name,new EmployeeModel());
             }
@@ -320,31 +344,19 @@ public class PaymentGenerateService {
             Map<String,String> chapterDetail  = novalDetail.get(chapterName).getChapterDetailMap();
 
             // 一章四个属性
-            String wordCount = sheet.getExcelDateByIndex(x, 7);
+            String wordCount = sheet.getExcelNumberByIndex(x, 7);
             chapterDetail.put("wordCount",wordCount);
-            novalModelMap.get(novalName).setWordCount(novalModelMap.get(novalName).getWordCount()+Double.parseDouble(wordCount));
-            String chapterCount = sheet.getExcelDateByIndex(x, 8);
+            novalModelMap.get(novalName).setWordCount(addTwoDouble(novalModelMap.get(novalName).getWordCount(),Double.parseDouble(wordCount)));
+            String chapterCount = sheet.getExcelNumberByIndex(x, 8);
             chapterDetail.put("chapterCount",chapterCount);
-            novalModelMap.get(novalName).setChapterCount(novalModelMap.get(novalName).getChapterCount()+Double.parseDouble(chapterCount));
-            String singlePrice = sheet.getExcelDateByIndex(x, 34);
+            novalModelMap.get(novalName).setChapterCount(addTwoDouble(novalModelMap.get(novalName).getChapterCount(),Double.parseDouble(chapterCount)));
+            String singlePrice = sheet.getExcelNumberByIndex(x, 34);
             chapterDetail.put("singlePrice",singlePrice);
-            String account = sheet.getExcelDateByIndex(x, 36);
+            String account = sheet.getExcelNumberByIndex(x, 36);
             chapterDetail.put("account",account);
-            novalModelMap.get(novalName).setAccount(novalModelMap.get(novalName).getAccount()+Double.parseDouble(account));
+            novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
         }
     }
-
-    private void buildOutPut(File file, String content) throws IOException {
-        // write
-        FileWriter fw = new FileWriter(file, true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(content);
-        bw.flush();
-        bw.close();
-        fw.close();
-    }
-
-
 
     private void recordFile(String path){
         File file = new File(path);
