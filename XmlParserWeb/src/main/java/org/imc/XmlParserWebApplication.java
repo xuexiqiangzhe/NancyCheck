@@ -1,6 +1,7 @@
 package org.imc;
 
 import org.imc.service.nancy.CombineFileService;
+import org.imc.service.nancy.PaymentGenerateService;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,9 +25,13 @@ public class XmlParserWebApplication {
 //        checkFilesService.check("检查");
 
         // 3.合并文档
-        CombineFileService combineFileService  = new CombineFileService();
-        combineFileService.combine("合并");
+//        CombineFileService combineFileService  = new CombineFileService();
+//        combineFileService.combine("合并");
+//
 
+        //4.生成结算表
+        PaymentGenerateService paymentGenerateService = new PaymentGenerateService();
+        paymentGenerateService.generate("结算");
         exitApplication(ctx);
     }
     public static void exitApplication(ConfigurableApplicationContext context) {
