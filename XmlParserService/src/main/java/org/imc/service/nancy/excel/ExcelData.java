@@ -81,20 +81,6 @@ public class ExcelData {
         return operateSteps;
     }
 
-    //打印excel数据
-    public void readExcelData(){
-        //获取行数
-        int rows = sheet.getPhysicalNumberOfRows();
-        for(int i=0;i<rows;i++){
-            //获取列数
-            XSSFRow row = sheet.getRow(i);
-            int columns = row.getPhysicalNumberOfCells();
-            for(int j=0;j<columns;j++){
-                String cell = row.getCell(j).toString();
-                System.out.println(cell);
-            }
-        }
-    }
 
     public int getNumberOfRows(){
         return sheet.getPhysicalNumberOfRows();

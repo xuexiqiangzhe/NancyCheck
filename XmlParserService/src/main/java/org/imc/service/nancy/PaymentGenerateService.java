@@ -1,6 +1,7 @@
 package org.imc.service.nancy;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.maven.surefire.shade.org.apache.commons.lang3.tuple.Pair;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -25,8 +26,9 @@ public class PaymentGenerateService {
     // 26 母语翻译 27 母语编辑单价  29母语编辑成本
     int[] col = {1,2,7,8,9,19,20,22,26,27,29};
     private List<String> files = new LinkedList<>();
+    private List<String> errorOpenFiles = new LinkedList<>();
     private TranslatorModel translatorModel = new TranslatorModel();
-
+    private Map<String,List<Pair<String,String>>> filePeopleAccountZeroMap = new HashMap<>();
 
     public void generate(String path) {
         Map<String, EmployeeModel> translatorModelMap =  translatorModel.getTranslatorModelMap();
@@ -34,8 +36,15 @@ public class PaymentGenerateService {
         Map<String, EmployeeModel> qualityModelMap =                 translatorModel.getQualityModelMap();
                 log.info("开始记录文件");
         recordFile(path);
-        for(String file:files){
-            log.info("已记录文件:"+file);
+        for(int i = 0;i<files.size();i++){
+            String file = files.get(i);
+            String[] filePathList = file.split("\\\\");
+            String fileName = filePathList[filePathList.length-1];
+            log.info("记录文件:"+file);
+            if("~$".equals(fileName.substring(0,2))){
+                log.info("隐藏文件,已经剔除。因为开头是："+fileName.substring(0,2));
+                files.remove(i);
+            }
         }
 
         File outputDirectory = new File("结果");
@@ -47,31 +56,74 @@ public class PaymentGenerateService {
             // 1.翻译
             try{
                 int rows = sheet.getNumberOfRows();
-                buildTranslator(translatorModelMap, sheet, rows);
+                buildTranslator(file,translatorModelMap, sheet, rows);
                 // 2.编辑
-                buildEditor(editorModelMap,sheet,rows);
+                buildEditor(file,editorModelMap,sheet,rows);
                 // 3.审校
-                buildQuality(qualityModelMap,sheet,rows);
+                buildQuality(file,qualityModelMap,sheet,rows);
             }catch (Exception e){
-                System.out.println(file+"挂");
-                throw e;
+                errorOpenFiles.add(file);
             }
-
-//        //根据第3列值为“customer23”的这一行，来获取该行第2列的值
-//        String cell3 = sheet1.getCellByCaseName("customer23", 2,1);
-//        System.out.println(cell2);
-//        System.out.println(cell3);
         }
+        // 文件挂统计
+        for(String errorOpenFile:errorOpenFiles){
+            log.error("文件挂了,文件名"+errorOpenFile);
+        }
+        if(errorOpenFiles.size()>0){
+            log.error("有文件挂了,请检查");
+            enterKeyContinue("按回车结束程序");
+            return;
+        }
+
+        // 算钱
         calculatorSum(translatorModelMap);
         calculatorSum(editorModelMap);
         calculatorSum(qualityModelMap);
 
+        // 输出excels
         buildExcels(translatorModelMap,editorModelMap,qualityModelMap);
         buildExcels2(editorModelMap,qualityModelMap);
         buildExcels3(qualityModelMap);
-        System.out.println("完事");
+
+        // 输出成本太低txt
+        String errorAccount = "";
+        for (Map.Entry<String,List<Pair<String,String>>> entry:filePeopleAccountZeroMap.entrySet()){
+            String file = entry.getKey();
+            for(Pair<String,String> pair:entry.getValue()){
+                String content ="成本疑似异常，文件："+file+", "+"人："+pair.getLeft()+", "+"章节："+pair.getRight()+"\n";
+                errorAccount+=content;
+            }
+        }
+        File errorAccountOutFile = new File("成本疑似位置.txt");
+        try {
+            buildOutPut(errorAccountOutFile, errorAccount);
+        }  catch (IOException e) {
+            log.error("输出txt有错误，请反馈BUG");
+            enterKeyContinue("按回车结束程序");
+            return;
+        }
+
+        enterKeyContinue("解析结束，按回车键继续");
     }
 
+    private void enterKeyContinue(String infomation) {
+        System.out.println("-------------"+infomation+"-----------------");
+        try {
+            new BufferedReader(new InputStreamReader(System.in)).readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void buildOutPut(File file, String name) throws IOException {
+        // write
+        FileWriter fw = new FileWriter(file, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(name + "\n");
+        bw.flush();
+        bw.close();
+        fw.close();
+    }
     private void calculatorSum(Map<String, EmployeeModel> modelMap){
         for(Map.Entry<String, EmployeeModel> entry: modelMap.entrySet()) {
             String name = entry.getKey();
@@ -219,7 +271,7 @@ public class PaymentGenerateService {
         return b1.add(b2).doubleValue();
     }
 
-    private void buildTranslator(Map<String, EmployeeModel> translatorModelMap, ExcelData sheet, int rows) {
+    private void buildTranslator(String file,Map<String, EmployeeModel> translatorModelMap, ExcelData sheet, int rows) {
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
@@ -261,12 +313,13 @@ public class PaymentGenerateService {
             chapterDetail.put("singlePrice",singlePrice);
             String account = sheet.getExcelNumberByIndex(x, 22);
             chapterDetail.put("account",account);
+            recordAccountTooLow(file, name, chapterName, account);
             novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
         }
     }
 
     // 26 母语翻译 27 母语编辑单价  29母语编辑成本
-    private void buildEditor(Map<String, EmployeeModel> editorMap, ExcelData sheet, int rows) {
+    private void buildEditor(String file,Map<String, EmployeeModel> editorMap, ExcelData sheet, int rows) {
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
@@ -307,12 +360,13 @@ public class PaymentGenerateService {
             chapterDetail.put("singlePrice",singlePrice);
             String account = sheet.getExcelNumberByIndex(x, 29);
             chapterDetail.put("account",account);
+            recordAccountTooLow(file, name, chapterName, account);
             novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
         }
     }
 
     // 33 质检姓名 34 单价  36 成本
-    private void buildQuality(Map<String, EmployeeModel> qualityMap, ExcelData sheet, int rows) {
+    private void buildQuality(String file,Map<String, EmployeeModel> qualityMap, ExcelData sheet, int rows) {
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
@@ -354,7 +408,18 @@ public class PaymentGenerateService {
             chapterDetail.put("singlePrice",singlePrice);
             String account = sheet.getExcelNumberByIndex(x, 36);
             chapterDetail.put("account",account);
+            recordAccountTooLow(file, name, chapterName, account);
             novalModelMap.get(novalName).setAccount(addTwoDouble(novalModelMap.get(novalName).getAccount(),Double.parseDouble(account)));
+        }
+    }
+
+    private void recordAccountTooLow(String file, String name, String chapterName, String account) {
+        if(Double.parseDouble(account)<0.55){
+            Pair<String,String> peopleChapter = Pair.of(name, chapterName);
+            if(!filePeopleAccountZeroMap.containsKey(file)){
+                filePeopleAccountZeroMap.put(file,new LinkedList<>());
+            }
+            filePeopleAccountZeroMap.get(file).add(peopleChapter);
         }
     }
 
