@@ -44,6 +44,7 @@ public class PaymentGenerateService {
             if("~$".equals(fileName.substring(0,2))){
                 log.info("隐藏文件,已经剔除。因为开头是："+fileName.substring(0,2));
                 files.remove(i);
+                i--;
             }
         }
 
