@@ -3,7 +3,9 @@ package org.imc.service.nancy;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.imc.tools.CommonTool;
 import org.imc.tools.NumberTool;
+import org.imc.tools.FileExportUtil;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -16,17 +18,16 @@ import java.util.List;
 @Slf4j
 public class CheckFilesService {
 
-
     private List<String> files = new LinkedList<>();
     private List<String> notOKFiles = new LinkedList<>();
     private List<String> titleNotOKFiles = new LinkedList<>();
 
     public void check(String path) {
         log.info("开始记录文件");
-        recordFile(path);
-        for(String file:files){
-            log.info("已记录文件"+file);
-        }
+        CommonTool.recordFile(files,path,".docx");
+        // 移除隐藏文件
+        log.info("开始移除隐藏文件");
+        CommonTool.removeHideFiles(files);
         for(String file:files){
             judge(file);
         }
@@ -38,30 +39,13 @@ public class CheckFilesService {
 
         String contentErrorFilePath = ".\\"+"内容格式不合格文件"+time+".txt";
         File contentErrorFile = new File(contentErrorFilePath);
-        try {
-            contentErrorFile.createNewFile();
             for (String name : notOKFiles) {
-                buildOutPut(contentErrorFile, name);
+                FileExportUtil.buildNormalOutPutFile(contentErrorFile, name);
             }
-            tileErrorFile.createNewFile();
             for (String name : titleNotOKFiles) {
-                buildOutPut(tileErrorFile, name);
+                FileExportUtil.buildNormalOutPutFile(tileErrorFile, name);
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
-
-    private void buildOutPut(File file, String name) throws IOException {
-        // write
-        FileWriter fw = new FileWriter(file, true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(name + "\n");
-        bw.flush();
-        bw.close();
-        fw.close();
-    }
-
 
     private void judge(String path){
         File file = new File(path);
@@ -111,25 +95,7 @@ public class CheckFilesService {
         }
         return null;
     }
-    private void recordFile(String path){
-        File file = new File(path);
-        File[] tempList = file.listFiles();
-        for (int i = 0; i < tempList.length; i++) {
-            if (tempList[i].isFile()) {
-                String fileName = tempList[i].toString();
-                Integer end = fileName.length();
-                Integer begin  = fileName.length()-5;
-                String suffix = fileName.substring(begin,end);
-                if(".docx".equals(suffix)){
-                    files.add(tempList[i].toString());
-                }
-            }
-            if (tempList[i].isDirectory()) {
-                String directory = tempList[i].toString();
-                recordFile(directory);
-            }
-        }
-    }
+
     private Boolean isOk(String doc,String chapterNum) {
         String standard = "##Chapter "+chapterNum+" ";
         if(doc==null||doc.length()<standard.length()){

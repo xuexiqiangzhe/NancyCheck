@@ -3,7 +3,9 @@ package org.imc.service.nancy;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.imc.tools.CommonTool;
 import org.imc.tools.NumberTool;
+import org.imc.tools.FileExportUtil;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -20,11 +22,14 @@ public class CombineFileService {
     private Map<Integer,String> fileMap = new TreeMap<>();
     public void combine(String path) {
         log.info("开始记录文件");
-        recordFile(path);
-        for(String file:files){
-            log.info("已记录文件"+file);
+        CommonTool.recordFile(files,path,".docx");
+        // 移除隐藏文件
+        log.info("开始移除隐藏文件");
+        CommonTool.removeHideFiles(files);
+        if(files.size()==0){
+            log.error("没有找到要合并的文件");
+            return;
         }
-
         for(String file:files){
             String[] filePath = file.split("\\\\");
             String fileName = filePath[filePath.length-1];
@@ -42,6 +47,7 @@ public class CombineFileService {
             fileMap.put(chapterNum,file);
         }
 
+
         for(Map.Entry<Integer,String> entry:fileMap.entrySet()){
             String file =  entry.getValue();
             try {
@@ -55,52 +61,46 @@ public class CombineFileService {
                 e.printStackTrace();
             }
         }
+
         SimpleDateFormat df = new SimpleDateFormat("yyMMdd-HH-mm-ss");//设置日期格式
         String time = df.format(new Date());
-        log.info("当前时间:"+time);
         String outFilePath = ".\\"+"合并文件"+time+".txt";
         String outDocFilePath = ".\\"+"合并文件"+time+".docx";
         File outFile = new File(outFilePath);
-        File outDocFile = new File(outDocFilePath);
-        try {
-            buildOutPut(outFile, res);
-            buildOutPut(outDocFile, res);
-        } catch (IOException e) {
-            e.printStackTrace();
+        FileExportUtil.buildNormalOutPutFile(outFile, res);
+        FileExportUtil.exportDocx(outDocFilePath,res);
+        // 检查连续性
+        checkChapterContinuity();
+        CommonTool.enterKeyContinue("合并完成，按回车键继续");
+
+    }
+
+    private void checkChapterContinuity() {
+        List<Integer> chapterList = new LinkedList<>();
+        for(Map.Entry<Integer,String> entry:fileMap.entrySet()) {
+            chapterList.add(entry.getKey());
         }
-    }
 
-    private void buildOutPut(File file, String content) throws IOException {
-        // write
-        FileWriter fw = new FileWriter(file, true);
-        BufferedWriter bw = new BufferedWriter(fw);
-        bw.write(content);
-        bw.flush();
-        bw.close();
-        fw.close();
-    }
-
-
-
-    private void recordFile(String path){
-        File file = new File(path);
-        File[] tempList = file.listFiles();
-        for (int i = 0; i < tempList.length; i++) {
-            if (tempList[i].isFile()) {
-                String fileName = tempList[i].toString();
-                Integer end = fileName.length();
-                Integer begin  = fileName.length()-5;
-                String suffix = fileName.substring(begin,end);
-                if(".docx".equals(suffix)){
-                    files.add(tempList[i].toString());
+        System.out.println("最小章节："+chapterList.get(0)+", "+"最大章节："+chapterList.get(chapterList.size()-1));
+        boolean flag = false;
+        for(int i=1;i<chapterList.size();i++){
+            int cur = chapterList.get(i);
+            int pre = chapterList.get(i-1);
+            if(cur-pre>1){
+                flag =true;
+                System.out.print("漏掉的章节：");
+                for(int j=pre+1;j<cur;j++){
+                    System.out.print(j+"\t");
                 }
-            }
-            if (tempList[i].isDirectory()) {
-                String directory = tempList[i].toString();
-                recordFile(directory);
+                System.out.print("\n");
             }
         }
+        if(!flag){
+            System.out.println("章节连续，不存在遗漏");
+        }
     }
+
+
     private String getChapter(String fileName){
         String res = null;
         try{
