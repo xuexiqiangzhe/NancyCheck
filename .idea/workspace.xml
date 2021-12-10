@@ -9,19 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="术语替换还有点问题">
-      <change afterPath="$PROJECT_DIR$/输入/新建 DOCX 文档.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/输入/术语替换表.xlsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/输出/新建 DOCX 文档.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/xmlparserweb_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/xmlparserweb_jar.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="术语替换完成">
+      <change afterPath="$PROJECT_DIR$/输入/583-W2-中英小说-国民女神又轰动全球了-进度评分成本表-Nancy-20211108.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/WordReplaceService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/WordReplaceService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/CommonTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/CommonTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/FileExportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/FileExportUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/PaymentGenerateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/PaymentGenerateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,6 +82,7 @@
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\结算" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\结算\已完成" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\out\artifacts\xmlparserweb_jar" />
       <recent name="C:\Users\小朋友留德\Desktop\XmlParser\XmlParserWeb\src\main\resources" />
@@ -253,7 +245,8 @@
       <workItem from="1638864939767" duration="768000" />
       <workItem from="1639044474795" duration="8827000" />
       <workItem from="1639100953499" duration="6259000" />
-      <workItem from="1639107366712" duration="628000" />
+      <workItem from="1639107366712" duration="800000" />
+      <workItem from="1639108777360" duration="778000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -507,7 +500,14 @@
       <option name="project" value="LOCAL" />
       <updated>1639053264107</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="术语替换完成">
+      <created>1639108020850</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1639108020850</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,7 +537,8 @@
     <MESSAGE value="读取完毕" />
     <MESSAGE value="解析完毕" />
     <MESSAGE value="术语替换还有点问题" />
-    <option name="LAST_COMMIT_MESSAGE" value="术语替换还有点问题" />
+    <MESSAGE value="术语替换完成" />
+    <option name="LAST_COMMIT_MESSAGE" value="术语替换完成" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

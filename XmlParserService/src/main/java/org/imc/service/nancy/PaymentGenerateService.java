@@ -255,7 +255,10 @@ public class PaymentGenerateService {
         return b1.add(b2).doubleValue();
     }
 
-    private void buildTranslator(String file,Map<String, EmployeeModel> translatorModelMap, ExcelData sheet, int rows) {
+    private void buildTranslator(String file,Map<String, EmployeeModel> translatorModelMap, ExcelData sheet, int rows) throws Exception {
+        if(!"序号".equals(sheet.getExcelDateByIndex(0, 0))){
+            throw new Exception();
+        }
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
@@ -303,7 +306,10 @@ public class PaymentGenerateService {
     }
 
     // 26 母语翻译 27 母语编辑单价  29母语编辑成本
-    private void buildEditor(String file,Map<String, EmployeeModel> editorMap, ExcelData sheet, int rows) {
+    private void buildEditor(String file,Map<String, EmployeeModel> editorMap, ExcelData sheet, int rows) throws Exception {
+        if(!"序号".equals(sheet.getExcelDateByIndex(0, 0))){
+            throw new Exception();
+        }
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
@@ -350,7 +356,10 @@ public class PaymentGenerateService {
     }
 
     // 33 质检姓名 34 单价  36 成本
-    private void buildQuality(String file,Map<String, EmployeeModel> qualityMap, ExcelData sheet, int rows) {
+    private void buildQuality(String file,Map<String, EmployeeModel> qualityMap, ExcelData sheet, int rows) throws Exception {
+        if(!"序号".equals(sheet.getExcelDateByIndex(0, 0))){
+            throw new Exception();
+        }
         for(int x = 1; x< rows; x++){
             String currentState = sheet.getExcelDateByIndex(x, 9);
             if(!"待结算".equals(currentState)){
