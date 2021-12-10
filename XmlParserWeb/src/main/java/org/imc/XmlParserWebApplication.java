@@ -20,7 +20,7 @@ public class XmlParserWebApplication {
         System.out.println("2 —————检查文档格式 ##Chapter 313");
         System.out.println("3 —————合并文档");
         System.out.println("4 —————生成译费结算表");
-        System.out.println("5 —————术语替换");
+        System.out.println("5 —————术语替换  需要,\"输入\\术语替换表.xlsx\"");
         Scanner lll = new Scanner(System.in);
         int x = lll.nextInt();
         switch (x) {

@@ -21,9 +21,13 @@ public class FileExportUtil {
     public static void exportDocx(String filePath,String content) {
         try {
             XWPFDocument doc = new XWPFDocument(); //创建word文件
-            XWPFParagraph p1 = doc.createParagraph(); //创建段落
-            XWPFRun r1 = p1.createRun(); //创建段落文本
-            r1.setText(content); //设置文本
+            String[] paragraphs = content.split("\n");
+            for(String paragraph:paragraphs){
+                XWPFParagraph p1 = doc.createParagraph(); //创建段落
+                XWPFRun r1 = p1.createRun(); //创建段落文本
+                r1.setText(paragraph); //设置文本
+
+            }
             FileOutputStream out = new FileOutputStream(filePath); //创建输出流
             doc.write(out);  //输出
             out.close();  //关闭输出流

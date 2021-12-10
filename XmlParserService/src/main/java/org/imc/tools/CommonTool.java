@@ -54,4 +54,27 @@ public class CommonTool {
             e.printStackTrace();
         }
     }
+
+    public static String returnRegularExpressionString(String str){
+        String reg = "\\\\d+";
+      //  String reg = "\\d+";
+        String reg1 = "\\\\:";
+        String reg2 = "\\\\+";
+        String reg3 = "\\\\(";
+        String reg4 = "\\\\)";
+        String reg5 = "\\\\[";
+        String reg6 = "\\\\]";
+        String reg7 = "\\\\$";
+        String reg8 = "\\\\*";
+        String tmp = str.replaceAll("\\+",reg2);
+        String tmp1 = tmp.replaceAll(reg,"\\\\d+");
+        String tmp2 = tmp1.replaceAll("\\:",reg1);
+        String tmp3 = tmp2.replaceAll("\\(",reg3);
+        String tmp4 = tmp3.replaceAll("\\)",reg4);
+        String tmp5 = tmp4.replaceAll("\\[",reg5);
+        String tmp6 = tmp5.replaceAll("\\]",reg6);
+        String tmp7 = tmp6.replaceAll("\\$",reg7);
+        String tmp8 = tmp7.replaceAll("\\*",reg8);
+        return tmp8;
+    }
 }
