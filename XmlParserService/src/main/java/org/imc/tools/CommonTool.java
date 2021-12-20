@@ -33,7 +33,7 @@ public class CommonTool {
             if (tempList[i].isFile()) {
                 String fileName = tempList[i].toString();
                 Integer end = fileName.length();
-                Integer begin  = fileName.length()-5;
+                Integer begin  = fileName.length()-targetSuffix.length();
                 String suffix = fileName.substring(begin,end);
                 if(targetSuffix.equals(suffix)){
                     files.add(tempList[i].toString());

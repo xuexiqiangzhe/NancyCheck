@@ -4,8 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.imc.tools.CommonTool;
-import org.imc.tools.NumberTool;
 import org.imc.tools.FileExportUtil;
+import org.imc.tools.FileImportUtil;
+import org.imc.tools.NumberTool;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -14,7 +15,7 @@ import java.util.*;
 
 @Component
 @Slf4j
-public class CombineFileService {
+public class CombineTxtFileService {
 
 
     private List<String> files = new LinkedList<>();
@@ -22,7 +23,7 @@ public class CombineFileService {
     private Map<Integer,String> fileMap = new TreeMap<>();
     public void combine(String path) {
         log.info("开始记录文件");
-        CommonTool.recordFile(files,path,".docx");
+        CommonTool.recordFile(files,path,".txt");
         // 移除隐藏文件
         log.info("开始移除隐藏文件");
         CommonTool.removeHideFiles(files);
@@ -51,11 +52,7 @@ public class CombineFileService {
         for(Map.Entry<Integer,String> entry:fileMap.entrySet()){
             String file =  entry.getValue();
             try {
-                FileInputStream fis = new FileInputStream(file);
-                XWPFDocument xdoc = new XWPFDocument(fis);
-                XWPFWordExtractor extractor = new XWPFWordExtractor(xdoc);
-                String doc = extractor.getText();
-                fis.close();
+                String doc = FileImportUtil.readFile(file);
                 res+=doc;
             } catch (Exception e) {
                 CommonTool.enterKeyContinue("中途，读取Txt失败，请联系程序员");
