@@ -5,9 +5,6 @@ import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.xssf.usermodel.*;
 import org.imc.service.nancy.excel.CreateExcelFile;
 import org.imc.service.nancy.excel.ExcelData;
-import org.imc.service.nancy.model.ChapterModel;
-import org.imc.service.nancy.model.EmployeeModel;
-import org.imc.service.nancy.model.NovalModel;
 import org.imc.tools.CommonTool;
 import org.springframework.stereotype.Component;
 
@@ -44,13 +41,18 @@ public class TranslatorNumGenerateService {
             outputDirectory.mkdir();
         }
         for(String file:files){
-            ExcelData sheet = new ExcelData(file, "译员资料");
-            Map<String,String> translatorNameLevelMap = new HashMap<>();
-            try{
-                buildTranslatorNameLevelMap(sheet,translatorNameLevelMap);
-                buildInternalDataStruct(file,translatorNameLevelMap,novelTranslatorNameLevelMap);
-            }catch (Exception e){
+            try {
+                FileInputStream fileInputStream = new FileInputStream(file);
+                XSSFWorkbook sheets = new XSSFWorkbook(fileInputStream);
+                //获取sheet
+                ExcelData translatorSheet = new ExcelData(sheets, "译员资料");
+                ExcelData processSheet = new ExcelData(sheets, "W2进度");
+                Map<String,String> translatorNameLevelMap = new HashMap<>();
+                buildTranslatorNameLevelMap(translatorSheet,translatorNameLevelMap);
+                buildInternalDataStruct(processSheet ,translatorNameLevelMap,novelTranslatorNameLevelMap);
+            } catch (Exception e) {
                 errorOpenFiles.add(file);
+                e.printStackTrace();
             }
         }
         // 文件挂统计
@@ -158,16 +160,15 @@ public class TranslatorNumGenerateService {
         }
     }
 
-    private void buildInternalDataStruct(String file,Map<String,String> translatorNameLevelMap,Map<String,Map<String,String>> novelTranslatorNameLevelMap) throws Exception{
-        ExcelData sheet = new ExcelData(file, "W2进度");
-        if(!"序号".equals(sheet.getExcelDateByIndex(0,0))||!"小说名称全称".equals(sheet.getExcelDateByIndex(0,1))){
+    private void buildInternalDataStruct(ExcelData processSheet ,Map<String,String> translatorNameLevelMap,Map<String,Map<String,String>> novelTranslatorNameLevelMap) throws Exception{
+        if(!"序号".equals(processSheet.getExcelDateByIndex(0,0))||!"小说名称全称".equals(processSheet.getExcelDateByIndex(0,1))){
             throw new Exception();
         }
-        int rows = sheet.getNumberOfRows();
-        String novelName = sheet.getExcelDateByIndex(1,1);
+        int rows = processSheet.getNumberOfRows();
+        String novelName = processSheet.getExcelDateByIndex(1,1);
         novelTranslatorNameLevelMap.put(novelName,translatorNameLevelMap);
         if(translatorModelMap.containsKey(novelName)){
-            log.error("小说重复，重复的小说:"+file);
+            log.error("小说重复，重复的小说:"+novelName);
             throw new Exception();
         }
         translatorModelMap.put(novelName,new HashMap<>());
@@ -177,11 +178,11 @@ public class TranslatorNumGenerateService {
         Map<String,List<String>> editorChapterMap = editorModelMap.get(novelName);
         Map<String,List<String>> qualityChapterMap = qualityModelMap.get(novelName);
         for(int i = 1;i<rows;i++){
-            String chapterName = sheet.getExcelDateByIndex(i,2);
-            String translatorName = sheet.getExcelDateByIndex(i,11);
-            String editorName = sheet.getExcelDateByIndex(i,20);
-            String qualityName = sheet.getExcelDateByIndex(i,25);
-            String state = sheet.getExcelDateByIndex(i,9);
+            String chapterName = processSheet.getExcelDateByIndex(i,2);
+            String translatorName = processSheet.getExcelDateByIndex(i,11);
+            String editorName = processSheet.getExcelDateByIndex(i,20);
+            String qualityName = processSheet.getExcelDateByIndex(i,25);
+            String state = processSheet.getExcelDateByIndex(i,9);
             // 后续没有内容了
             if(!isValidName(translatorName)&&!isValidName(editorName)&&!isValidName(qualityName)&&"".equals(chapterName)){
                 break;

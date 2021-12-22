@@ -40,6 +40,14 @@ public class ExcelData {
     }
 
     /**
+     * 构造函数，初始化excel数据
+     * @param sheetName sheet表名
+     */
+    public ExcelData(XSSFWorkbook sheets,String sheetName){
+            sheet = sheets.getSheet(sheetName);
+    }
+
+    /**
      * 根据行和列的索引获取单元格的数据
      * @param row
      * @param column
@@ -47,6 +55,9 @@ public class ExcelData {
      */
     public String getExcelDateByIndex(int row,int column){
         XSSFRow row1 = sheet.getRow(row);
+        if(row1.getCell(column)==null){
+            return "";
+        }
         String cell = row1.getCell(column).toString();
         return cell;
     }
