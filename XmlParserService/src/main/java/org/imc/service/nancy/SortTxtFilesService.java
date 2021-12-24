@@ -54,7 +54,8 @@ public class SortTxtFilesService {
                 String file = entry1.getValue();
                 String[] filePath = file.split("\\\\");
                 String fileName = filePath[filePath.length-1];
-                String bookName = fileName.split(" ")[1];
+                String[] fileNameSplit =  fileName.split(" ");
+                String bookName = fileNameSplit[fileNameSplit.length-1];
                 try {
                     String doc = FileImportUtil.readFile(file);
                     String outFilePath = "输出\\"+transTo4Bit(num)+" "+bookName;
@@ -87,13 +88,26 @@ public class SortTxtFilesService {
 
     private Pair<Integer,Integer> getTitle(String fileName){
         try{
-            String bookChapter = fileName.split(" ")[0];
-            String[] bC = bookChapter.split("第");
-            String book = bC[1].substring(0,bC[1].length()-1);
-            String chapter = bC[2].substring(0,bC[2].length()-1);
-            int bookNum = DigitUtils.chineseNumber2Int(book);
-            int chapterNum = DigitUtils.chineseNumber2Int(chapter);
-            return Pair.of(bookNum, chapterNum);
+            String[] emptyWordSplit = fileName.split(" ");
+            if(emptyWordSplit.length>3){
+                throw new Exception();
+            }else if(emptyWordSplit.length == 3){
+                String book = emptyWordSplit[0];
+                String chapter = emptyWordSplit[1];
+                book = book.substring(1,book.length()-1);
+                chapter = chapter.substring(1,chapter.length()-1);
+                int bookNum = DigitUtils.chineseNumber2Int(book);
+                int chapterNum = DigitUtils.chineseNumber2Int(chapter);
+                return Pair.of(bookNum, chapterNum);
+            }else if(emptyWordSplit.length == 2){
+                String bookChapter = emptyWordSplit[0];
+                String[] bC = bookChapter.split("第");
+                String book = bC[1].substring(0,bC[1].length()-1);
+                String chapter = bC[2].substring(0,bC[2].length()-1);
+                int bookNum = DigitUtils.chineseNumber2Int(book);
+                int chapterNum = DigitUtils.chineseNumber2Int(chapter);
+                return Pair.of(bookNum, chapterNum);
+            }
         }catch (Exception e){
             log.error("文件名错误 或 处理失败，文件名："+fileName);
         }

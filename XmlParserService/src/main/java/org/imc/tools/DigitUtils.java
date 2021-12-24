@@ -21,6 +21,9 @@ public class DigitUtils {
      */
     @SuppressWarnings("unused")
     public static int chineseNumber2Int(String chineseNumber){
+        if(NumberTool.isInteger(chineseNumber)){
+            return Integer.parseInt(chineseNumber);
+        }
         int result = 0;
         int temp = 1;//存放一个单位的数字如：十万
         int count = 0;//判断是否有chArr
