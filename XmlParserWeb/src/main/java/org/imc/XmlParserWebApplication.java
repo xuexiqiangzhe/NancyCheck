@@ -23,6 +23,7 @@ public class XmlParserWebApplication {
         System.out.println("5 —————术语替换  需要,\"输入\\术语替换表.xlsx\"");
         System.out.println("6 —————合并txt文档");
         System.out.println("7 —————生成译员编号信息表");
+        System.out.println("8 —————给txt卷章编号");
         Scanner lll = new Scanner(System.in);
         int x = lll.nextInt();
         switch (x) {
@@ -63,7 +64,12 @@ public class XmlParserWebApplication {
                 TranslatorNumGenerateService translatorNumGenerateService = new TranslatorNumGenerateService();
                 translatorNumGenerateService.generate("输入");
                 break;
-           default:
+            case 8:
+                // 7.生成译员编号信息表
+                SortTxtFilesService sortTxtFilesService = new SortTxtFilesService();
+                sortTxtFilesService.sort("输入");
+                break;
+                default:
                 break;
         }
 

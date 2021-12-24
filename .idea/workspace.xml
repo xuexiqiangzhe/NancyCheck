@@ -10,10 +10,160 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="新工具7">
-      <change afterPath="$PROJECT_DIR$/输入/12-22需要-549-W2-W2-中英项目-狱神-进度评分成本表-Nancy-20211216 - 副本.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SortTxtFilesService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/DigitUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第一章 落魄皇子.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第七章 线索.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第三章 化腐重生.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第九章 妙手.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第二十章 化险为夷.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第二章 融合.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第五章 仁心堂.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第八章 参将府.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第六章 治愈.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十一章 试探.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十七章 掌柜会议.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十三章 生意.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十九章 牢狱之灾.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十二章 制药.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十五章 二次融合.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十八章 合作.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十六章 夜探天牢.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十四章 人情.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第十章 想法.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第一卷第四章 出宫.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第一章 入庙拜佛.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第七章 峡谷血战上.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第三章 局势.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第九章 栽赃上.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第二十章 初级法器.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第二章 脑疾.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第五章 侍女.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第八章 峡谷血战下.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第六章 劫贡品.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十一章 汇合.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十七章 解决之法.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十三章 四县一统.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十九章 寻药.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十二章 渔翁得利.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十五章 寻找线索.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十八章 寸鼎之变.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十六章 画舫之上.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十四章 三年之后.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第十章 栽赃下.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第七卷第四章 操纵局势.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第一章 赐地封王.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第七章 兵分两路.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第三章 清水关.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第九章 黄猎户的身份.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第二十章 瞒天过海.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第二章 出宫.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第五章 化酒.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第八章 猎户.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第六章 破谋.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十一章 通缉犯.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十七章 汇合.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十三章 黄雀在后.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十九章 撒饵设局.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十二章 行踪暴露.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十五章 凶兽睡猨.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十八章 渡江之策.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十六章 斩凶兽.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十四章 生死一线.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第十章 治疗之法.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第三卷第四章 激怒.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第一章 觉悟.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第七章 移尸.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第三章 痊愈.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第九章 初闻仙门.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第二十章 全面压制.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第二章 献策.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第五章 对策.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第八章 迅杀.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第六章 本命真血.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十一章 月湖寻鼎.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十七章 大婚.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十三章 炼丹.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十九章 对答如流.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十二章 皇陵凶兽.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十五章 最后一步.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十八章 谏言.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十六章 万事俱备.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十四章 再访侯府.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第十章 日融月解之术.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第二卷第四章 接触.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第一章 村中异闻.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第七章 三目巨貂.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第三章 过坡之策.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第九章 寸鼎.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第二十章 陌水寨.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第二章 三部之乱.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第五章 初见端倪.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第八章 九凶葬龙阵.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第六章 探秘冰池.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十一章 解围.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十七章 震慑望族.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十三章 诛杀龙魂下.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十九章 整顿.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十二章 诛杀龙魂上.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十五章 请君入瓮.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十八章 铁腕治军.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十六章 鸿门宴.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十四章 借兵.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第十章 朱从厚的阴谋.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第五卷第四章 暗流涌动.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第一章 吸魂葫芦.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第七章 相马之术.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第三章 释魂.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第九章 郡城赛马会.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第二章 虎头腰牌.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第五章 前往益州.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第八章 选马.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第六章 卢城曹家.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第十章 蛛丝马迹.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第八卷第四章 荣府下人.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第一章 招安.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第七章 以身犯险.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第三章 天道循环.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第九章 与王一战.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第二十章 孙管事.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第二章 密谋.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第五章 潜入夺天寨.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第八章 从容应对.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第六章 山寨聚首.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十一章 发展.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十七章 一掷千金.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十三章 黑木城.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十九章 形势复杂.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十二章 边陲之地.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十五章 扑卖场.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十八章 觊觎.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十六章 扑卖.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十四章 打算.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第十章 或战或降.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第六卷第四章 传授.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第一章 斩敌.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第七章 招募.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第三章 初到丰县.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第九章 小神通典.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第二十章 谷底秘境.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第二章 石城地界.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第五章 意外发现.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第八章 终到离别时.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第六章 铁矿山.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十一章 溪河县之行.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十七章 刚力境.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十三章 小蛮女.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十九章 血战铜皮.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十二章 两县望族.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十五章 黑市.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十八章 激战虎跳崖.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十六章 二级丹方.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十四章 揣测.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第十章 力拼.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输入/测试排序-药鼎仙途-第1-150章/药鼎仙途/第四卷第四章 丰县难题.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/TranslatorNumGenerateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/TranslatorNumGenerateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/excel/ExcelData.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/excel/ExcelData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +402,11 @@
       <workItem from="1639982553714" duration="2023000" />
       <workItem from="1639988461764" duration="614000" />
       <workItem from="1639990571861" duration="53000" />
-      <workItem from="1640155993833" duration="14185000" />
+      <workItem from="1640155993833" duration="14521000" />
+      <workItem from="1640244854363" duration="21000" />
+      <workItem from="1640245025068" duration="25000" />
+      <workItem from="1640250370829" duration="66000" />
+      <workItem from="1640314965214" duration="2662000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -534,7 +688,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640163025359</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="新工具7">
+      <created>1640174788637</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1640174788637</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
