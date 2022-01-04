@@ -24,6 +24,7 @@ public class XmlParserWebApplication {
         System.out.println("6 —————合并txt文档");
         System.out.println("7 —————生成译员编号信息表");
         System.out.println("8 —————给txt卷章编号");
+        System.out.println("9 —————高亮术语   需要,\"输入\\术语表.xlsx\" 和 \"输入\\中文\"………… 和 \"输入\\英文\"…………");
         Scanner lll = new Scanner(System.in);
         int x = lll.nextInt();
         switch (x) {
@@ -69,10 +70,14 @@ public class XmlParserWebApplication {
                 SortTxtFilesService sortTxtFilesService = new SortTxtFilesService();
                 sortTxtFilesService.sort("输入");
                 break;
-                default:
+            case 9:
+                // 9.高亮术语
+                WordHighLightService wordHighLightService = new WordHighLightService();
+                wordHighLightService.highLight("输入");
+                break;
+            default:
                 break;
         }
-
 
         exitApplication(ctx);
     }

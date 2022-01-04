@@ -10,9 +10,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="新工具8">
+      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/WordHighLightService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输出/中文/狱神-原文至805章.docx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/输出/英文/549-ch1-486-readthrough-20211229.docx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CheckFilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CheckFilesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CombineFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CombineFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CombineTxtFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/CombineTxtFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/FilterFilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/FilterFilesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/PaymentGenerateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/PaymentGenerateService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SortTxtFilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SortTxtFilesService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/DigitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/DigitUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/FileExportUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/FileExportUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/target/classes/org/imc/service/nancy/FilterFilesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/target/classes/org/imc/service/nancy/FilterFilesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,9 +92,10 @@
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入" />
+      <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入\中文" />
+      <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入\英文" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\结算\已完成" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\out\artifacts\xmlparserweb_jar" />
-      <recent name="C:\Users\小朋友留德\Desktop\XmlParser\XmlParserWeb\src\main\resources" />
     </key>
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
@@ -255,7 +266,21 @@
       <workItem from="1640244854363" duration="21000" />
       <workItem from="1640245025068" duration="25000" />
       <workItem from="1640250370829" duration="66000" />
-      <workItem from="1640314965214" duration="3647000" />
+      <workItem from="1640314965214" duration="4203000" />
+      <workItem from="1640322576280" duration="5000" />
+      <workItem from="1640327837911" duration="1786000" />
+      <workItem from="1640672019869" duration="2000" />
+      <workItem from="1640672084578" duration="14000" />
+      <workItem from="1640672129115" duration="363000" />
+      <workItem from="1640676130713" duration="213000" />
+      <workItem from="1640771479081" duration="4285000" />
+      <workItem from="1640777100398" duration="24000" />
+      <workItem from="1640777285150" duration="619000" />
+      <workItem from="1640853576358" duration="459000" />
+      <workItem from="1641202442279" duration="411000" />
+      <workItem from="1641280952822" duration="534000" />
+      <workItem from="1641287547637" duration="8000" />
+      <workItem from="1641291638808" duration="2524000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -551,7 +576,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640317820755</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="新工具8">
+      <created>1640318827650</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1640318827650</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,6 +629,7 @@
     </pin-to-top-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/APP$XmlParserWebApplication.ic" NAME="XmlParserWebApplication Coverage Results" MODIFIED="1640772318578" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/XmlParser$XmlParserWebApplication.ic" NAME="XmlParserWebApplication Coverage Results" MODIFIED="1636449301164" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

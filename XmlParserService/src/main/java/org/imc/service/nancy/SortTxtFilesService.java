@@ -59,8 +59,7 @@ public class SortTxtFilesService {
                 try {
                     String doc = FileImportUtil.readFile(file);
                     String outFilePath = "输出\\"+transTo4Bit(num)+" "+bookName;
-                    File outFile = new File(outFilePath);
-                    FileExportUtil.buildNormalOutPutFile(outFile, doc);
+                    FileExportUtil.buildNormalOutPutFile(outFilePath, doc);
                     num++;
                 }catch (Exception e){
                     log.error("读取文件失败，文件："+file);

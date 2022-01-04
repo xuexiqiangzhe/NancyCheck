@@ -66,8 +66,7 @@ public class CombineFileService {
         String time = df.format(new Date());
         String outFilePath = ".\\"+"合并文件"+time+".txt";
         String outDocFilePath = ".\\"+"合并文件"+time+".docx";
-        File outFile = new File(outFilePath);
-        FileExportUtil.buildNormalOutPutFile(outFile, res);
+        FileExportUtil.buildNormalOutPutFile(outFilePath, res);
         FileExportUtil.exportDocx(outDocFilePath,res);
         // 检查连续性
         checkChapterContinuity();

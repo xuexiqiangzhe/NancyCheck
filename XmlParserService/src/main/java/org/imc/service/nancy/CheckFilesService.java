@@ -35,15 +35,12 @@ public class CheckFilesService {
         String time = df.format(new Date());
         log.info("当前时间:"+time);
         String tileErrorFilePath = ".\\"+"标题不合格文件"+time+".txt";
-        File tileErrorFile = new File(tileErrorFilePath);
-
         String contentErrorFilePath = ".\\"+"内容格式不合格文件"+time+".txt";
-        File contentErrorFile = new File(contentErrorFilePath);
             for (String name : notOKFiles) {
-                FileExportUtil.buildNormalOutPutFile(contentErrorFile, name);
+                FileExportUtil.buildNormalOutPutFile(contentErrorFilePath, name);
             }
             for (String name : titleNotOKFiles) {
-                FileExportUtil.buildNormalOutPutFile(tileErrorFile, name);
+                FileExportUtil.buildNormalOutPutFile(tileErrorFilePath, name);
             }
     }
 

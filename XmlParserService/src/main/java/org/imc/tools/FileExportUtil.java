@@ -49,4 +49,15 @@ public class FileExportUtil {
             e.printStackTrace();
         }
     }
+
+    public static void buildNormalOutPutFile(String filePath,String content){
+        try {
+            BufferedWriter writer = new BufferedWriter (new OutputStreamWriter (new FileOutputStream (filePath,true),"UTF-8"));
+            writer.write(content);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

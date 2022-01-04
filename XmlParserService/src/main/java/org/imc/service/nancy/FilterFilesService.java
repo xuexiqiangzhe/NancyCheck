@@ -4,7 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.imc.tools.CommonTool;
+import org.imc.tools.DigitUtils;
 import org.imc.tools.FileExportUtil;
+import org.imc.tools.NumberTool;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -34,11 +36,12 @@ public class FilterFilesService {
         String time = df.format(new Date());
         log.info("当前时间:"+time);
         String outPutFilePath = ".\\"+time+"不合格文件.txt";
-        File file = new File(outPutFilePath);
+        String content = "";
         for (String name : notOKFiles) {
-            FileExportUtil.buildNormalOutPutFile(file, name);
+            content+=name+"\n";
         }
-
+        FileExportUtil.buildNormalOutPutFile(outPutFilePath, content);
+        CommonTool.enterKeyContinue("不合格文件检查完毕，按回车退出");
     }
 
     private void judge(String path){
@@ -50,9 +53,10 @@ public class FilterFilesService {
             String doc = extractor.getText();
           //  System.out.println(doc);
             fis.close();
-            if(!isOk(doc)){
-                String[] filePath = path.split("\\\\");
-                notOKFiles.add(filePath[filePath.length-1]);
+            String[] filePath = path.split("\\\\");
+            String fileName = filePath[filePath.length-1];
+            if(!isOk(doc,fileName)){
+                notOKFiles.add(fileName);
                 System.out.println(path+"File format is not OK");
 //                if(file.delete()){
 //                    System.out.println(path+" File deleted");
@@ -66,14 +70,43 @@ public class FilterFilesService {
         }
     }
 
-    private Boolean isOk(String doc) {
+    private Boolean isOk(String doc,String fileName) {
+        // 1.检查文件名提取章节号
+        String[] fileNamePart = fileName.split(" ");
+        if(fileNamePart.length!=3){
+            return false;
+        }
+        String chapter = fileNamePart[1].substring(1,fileNamePart[1].length()-1);
+        Integer chapterNum;
+        if(!NumberTool.isInteger(chapter)){
+            try {
+                chapterNum = DigitUtils.chineseNumber2Int(chapter);
+                chapter = String.valueOf(chapterNum);
+            }catch (Exception e){
+                return false;
+            }
+        }
+
+        // 2.检查内容
         if(doc==null||doc.length()<15){
             return false;
         }
+        // 2.1 条件1
         String head = doc.substring(0,15);
         if(!"***ChapterName:".equals(head)){
             return false;
         }
+        // 2.2 条件2 和标题的章节号不等则不合格
+        try{
+            String chapterDoc = getChapterDoc(doc);
+            if(!NumberTool.isInteger(chapterDoc)||!chapter.equals(chapterDoc)){
+                return false;
+            }
+        }catch (Exception e){
+            return false;
+        }
+
+        // 2.3 条件3
         int i = 14;
         for(;i<doc.length();i++){
             if('\n'==doc.charAt(i)){
@@ -92,5 +125,28 @@ public class FilterFilesService {
             return false;
         }
         return true;
+    }
+
+    private String getChapterDoc(String doc) throws Exception {
+        int count = 0;
+        int begin =0;
+        int end =0;
+        for(int i=14;i<doc.length();i++){
+            if(' '==doc.charAt(i)){
+                count++;
+                if(count==2){
+                    begin = i+1;
+                }else if(count==3){
+                    end = i;
+                    break;
+                }
+            }else if('\n'==doc.charAt(i)){
+                throw new Exception();
+            }
+        }
+        if(begin==0||end==0){
+            throw new Exception();
+        }
+        return doc.substring(begin,end);
     }
 }

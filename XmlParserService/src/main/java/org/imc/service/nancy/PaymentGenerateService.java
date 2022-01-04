@@ -91,8 +91,7 @@ public class PaymentGenerateService {
                 errorAccount+=content;
             }
         }
-        File errorAccountOutFile = new File("成本疑似位置.txt");
-        FileExportUtil.buildNormalOutPutFile(errorAccountOutFile, errorAccount);
+        FileExportUtil.buildNormalOutPutFile("成本疑似位置.txt", errorAccount);
         CommonTool.enterKeyContinue("解析结束，按回车键继续");
     }
 
