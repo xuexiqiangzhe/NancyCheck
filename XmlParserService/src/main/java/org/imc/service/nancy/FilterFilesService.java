@@ -117,12 +117,53 @@ public class FilterFilesService {
         if(i>=doc.length()){
             return  false;
         }
-        if(doc.length()<i+12){
+        if(doc.length()<=i+12){
             return false;
         }
         String tail = doc.substring(i,i+12);
         if(!"***Explicit:".equals(tail)){
             return false;
+        }
+
+        // 2.4 空格+false/true+若干个空格+换行符
+        int j = i+12;
+        for(;j<doc.length();j++){
+            if('\n'==doc.charAt(j)){
+                break;
+            }
+        }
+        if('\n'!=doc.charAt(j)){
+            return false;
+        }
+        tail = doc.substring(i+12,j);
+        if(' '!=tail.charAt(0)||tail.length()<5){
+            return false;
+        }
+        if('t'==tail.charAt(1)){
+            if(tail.length()<5||!"true".equals(tail.substring(1,5))){
+                return false;
+            }
+            if (!isConsistEmpty(tail.substring(5))) {
+                return false;
+            }
+        }else if('f'==tail.charAt(1)){
+            if(tail.length()<6||!"false".equals(tail.substring(1,6))){
+                return false;
+            }
+            if (!isConsistEmpty(tail.substring(6))) {
+                return false;
+            }
+        }else{
+            return false;
+        }
+        return true;
+    }
+
+    private boolean isConsistEmpty(String tail) {
+        for (int k = 0; k < tail.length(); k++) {
+            if (' ' != tail.charAt(k)) {
+                return false;
+            }
         }
         return true;
     }
