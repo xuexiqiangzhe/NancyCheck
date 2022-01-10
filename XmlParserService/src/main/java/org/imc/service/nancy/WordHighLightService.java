@@ -4,15 +4,26 @@ import com.spire.doc.Document;
 import com.spire.doc.FileFormat;
 import com.spire.doc.documents.TextSelection;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.imc.service.nancy.excel.ExcelData;
 import org.imc.tools.CommonTool;
+import org.imc.tools.FileExportUtil;
+import org.imc.tools.HighLightTool;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.io.File;
 import java.util.*;
 import java.util.List;
+import java.io.*;
+import java.nio.file.*;
 
+import javax.xml.stream.*;
+import javax.xml.stream.events.*;
+
+import javax.xml.namespace.QName;
 @Component
 @Slf4j
 public class WordHighLightService {
@@ -55,10 +66,10 @@ public class WordHighLightService {
         for (String file : files) {
             try {
                 String[] filePath = file.split("\\\\");
-                String fileName = filePath[filePath.length - 1];
+                String fileName = filePath[filePath.length-1];
                 Document doc = new Document();
                 doc.loadFromFile(file);
-                replaceBySpire(doc, fileName, language,replaceSet);
+                replaceBySpire(doc,fileName,language,replaceSet);
             } catch (Exception e) {
                 log.info("替换发生异常，中断程序了，请联系开发，目标文件：" + file);
                 e.printStackTrace();
@@ -122,5 +133,53 @@ public class WordHighLightService {
         doc.saveToFile("输出\\"+language+"\\"+fileName,FileFormat.Docx_2013);
         doc.dispose();
     }
+
+    public static String getHighlightWord(String textWord, String key){
+        StringBuffer sb = new StringBuffer("");
+        String tempWord = textWord == null? "" : textWord.trim();
+        String tempKey = key == null? "" : key.trim();
+        if("".equals(tempWord) || "".equals(tempKey)){
+            return tempWord;
+        }else {
+            sb.append(tempWord);
+        }
+        String upperWord = tempWord.toUpperCase();
+        String upperKey = tempKey.toUpperCase();
+        if(!upperWord.contains(upperKey)){
+            return tempWord;
+        }else {
+            int keyLen = upperKey.length();
+            int thisMathIndex = 0;
+            List<Map<Integer, String>> matchList = new ArrayList<Map<Integer, String>>();
+            while((thisMathIndex = upperWord.indexOf(upperKey, thisMathIndex)) != -1){
+                Map<Integer, String> map = new HashMap<Integer, String>();
+                map.put(thisMathIndex, tempWord.substring(thisMathIndex, thisMathIndex + keyLen));
+                matchList.add(map);
+                thisMathIndex += keyLen;
+            }
+            int thisKey = 0;
+            int keys = 0;
+            for(Map<Integer, String> map : matchList){
+                thisKey = getKey(map);
+                keys += thisKey;
+                sb.replace(thisKey, thisKey + keyLen, "<span style='background-color: yellow;'>"+map.get(thisKey)+"</span>");
+                keys += "<span style='background-color: yellow;'></span>".length();
+            }
+        }
+        return sb.toString();
+    }
+
+    private static int getKey(Map<Integer, String> obj){
+        Set<Integer> keySet = obj.keySet();
+        int firstKey = -1;
+        for(int key : keySet){
+            firstKey = key;
+            if(firstKey != -1){
+                break;
+            }
+        }
+        return firstKey;
+    }
+
 
 }

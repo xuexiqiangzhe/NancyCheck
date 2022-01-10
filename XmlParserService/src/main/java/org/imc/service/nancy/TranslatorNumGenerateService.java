@@ -2,6 +2,7 @@ package org.imc.service.nancy;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.xssf.usermodel.*;
 import org.imc.service.nancy.excel.CreateExcelFile;
 import org.imc.service.nancy.excel.ExcelData;
@@ -90,8 +91,16 @@ public class TranslatorNumGenerateService {
                 //获取表头的列数 int columnCount = sheet.getRow(0).getLastCellNum();
                 // 黄色底色
                 XSSFCellStyle cellStyle = (XSSFCellStyle) xWorkbook.createCellStyle();
-                cellStyle.setFillForegroundColor(new XSSFColor(new java.awt.Color(255, 255, 0)));
-                cellStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
+                DefaultIndexedColorMap defaultIndexedColorMap = new DefaultIndexedColorMap();
+                XSSFColor clr = new XSSFColor(defaultIndexedColorMap);
+                byte[] bytes = {
+                        (byte) 255,
+                        (byte) 255,
+                        (byte) 0
+                };
+                clr.setRGB(bytes);
+                cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+                cellStyle.setFillForegroundColor(clr);
                 rowCount = buildRoleExcel(translatorChapterMap, translatorNameLevelMap, sheet, rowCount, cellStyle);
                 rowCount = buildRoleExcel(editorChapterMap, translatorNameLevelMap, sheet, rowCount, cellStyle);
                 rowCount = buildRoleExcel(qualityChapterMap, translatorNameLevelMap, sheet, rowCount, cellStyle);

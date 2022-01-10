@@ -1,7 +1,6 @@
 package org.imc.tools;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.poi.POIXMLDocument;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.apache.poi.xwpf.usermodel.XWPFParagraph;
 import org.apache.poi.xwpf.usermodel.XWPFRun;

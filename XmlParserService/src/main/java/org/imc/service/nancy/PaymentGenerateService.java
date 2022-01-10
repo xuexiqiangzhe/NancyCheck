@@ -166,8 +166,16 @@ public class PaymentGenerateService {
             int columnCount = sheet.getRow(0).getLastCellNum();
             // 黄色底色
             XSSFCellStyle cellStyle = (XSSFCellStyle) xWorkbook.createCellStyle();
-            cellStyle.setFillForegroundColor(new XSSFColor(new java.awt.Color(255, 255, 0)));
-            cellStyle.setFillPattern(CellStyle.SOLID_FOREGROUND);
+            DefaultIndexedColorMap defaultIndexedColorMap = new DefaultIndexedColorMap();
+            XSSFColor clr = new XSSFColor(defaultIndexedColorMap);
+            byte[] bytes = {
+                    (byte) 255,
+                    (byte) 255,
+                    (byte) 0
+            };
+            clr.setRGB(bytes);
+            cellStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+            cellStyle.setFillForegroundColor(clr);
 
             // 翻译人
             if(isNewFile){
