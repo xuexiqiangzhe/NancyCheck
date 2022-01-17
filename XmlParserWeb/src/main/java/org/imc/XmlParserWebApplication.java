@@ -25,6 +25,7 @@ public class XmlParserWebApplication {
         System.out.println("7 —————生成译员编号信息表");
         System.out.println("8 —————给txt卷章编号");
         System.out.println("9 —————高亮术语   需要,\"输入\\术语表.xlsx\" 和 \"输入\\中文\"………… 和 \"输入\\英文\"…………");
+        System.out.println("10 ————根据章节号重命名文件 如：第一千章 盘古开天地.txt ->01000 盘古开天地.txt");
         Scanner lll = new Scanner(System.in);
         int x = lll.nextInt();
         switch (x) {
@@ -75,7 +76,12 @@ public class XmlParserWebApplication {
                 WordHighLightService wordHighLightService = new WordHighLightService();
                 wordHighLightService.highLight("输入");
                 break;
-            default:
+            case 10:
+                // 9.重命名文件（根据章节号）
+                RenameChapterToNumService renameChapterToNumService = new RenameChapterToNumService();
+                renameChapterToNumService.rename("输入");
+                break;
+                default:
                 break;
         }
 

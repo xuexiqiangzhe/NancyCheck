@@ -14,7 +14,7 @@ import java.util.regex.Pattern;
  */
 public class DigitUtils {
     /**
-     * 中文數字转阿拉伯数组【十万九千零六十  --> 109060】
+     * 中文數字转阿拉伯数组、是数字则直接返回数字
      * @author 雪见烟寒
      * @param chineseNumber
      * @return
@@ -26,13 +26,15 @@ public class DigitUtils {
         }
         int result = 0;
         int temp = 1;//存放一个单位的数字如：十万
-        int count = 0;//判断是否有chArr
-        char[] cnArr = new char[]{'一','二','三','四','五','六','七','八','九'};
+        int count = 0;//判断是否该把上一个单位先加入result
+        char[] cnArr = new char[]{'一','二','三','四','五','六','七','八','九','两'};
         char[] chArr = new char[]{'十','百','千','万','亿'};
         for (int i = 0; i < chineseNumber.length(); i++) {
             boolean b = true;//判断是否是chArr
             char c = chineseNumber.charAt(i);
-            for (int j = 0; j < cnArr.length; j++) {//非单位，即数字
+
+            // 数字{'一','二','三','四','五','六','七','八','九','两'};
+            for (int j = 0; j < cnArr.length; j++) {
                 if (c == cnArr[j]) {
                     if(0 != count){//添加下一个单位之前，先把上一个单位值添加到结果中
                         result += temp;
@@ -40,7 +42,11 @@ public class DigitUtils {
                         count = 0;
                     }
                     // 下标+1，就是对应的值
-                    temp = j + 1;
+                    if(j<9){
+                        temp = j + 1;
+                    }else if(j==9){
+                        temp = 2;
+                    }
                     b = false;
                     break;
                 }
@@ -76,6 +82,13 @@ public class DigitUtils {
             }
         }
         return result;
+    }
+
+    public static void main(String[] args){
+        String[] inputs = {"两千万","两亿两万"};
+        for(String input:inputs){
+            System.out.println(chineseNumber2Int(input));
+        }
     }
 }
 
