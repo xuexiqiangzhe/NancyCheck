@@ -20,7 +20,7 @@ public class DigitUtils {
      * @return
      */
     @SuppressWarnings("unused")
-    public static int chineseNumber2Int(String chineseNumber){
+    public static int chineseNumber2Int(String chineseNumber) throws Exception {
         if(NumberTool.isInteger(chineseNumber)){
             return Integer.parseInt(chineseNumber);
         }
@@ -29,6 +29,31 @@ public class DigitUtils {
         int count = 0;//判断是否该把上一个单位先加入result
         char[] cnArr = new char[]{'一','二','三','四','五','六','七','八','九','两'};
         char[] chArr = new char[]{'十','百','千','万','亿'};
+
+
+        for (int i = 0; i < chineseNumber.length(); i++) {
+            char c = chineseNumber.charAt(i);
+            boolean flag = false;
+            for (int j = 0; j < cnArr.length; j++) {
+                if (c == cnArr[j]) {
+                    flag = true;
+                }
+            }
+            for (int j = 0; j < chArr.length; j++) {
+                if (c == chArr[j]) {
+                    flag = true;
+                }
+            }
+            if(c=='零'){
+                flag = true;
+            }
+            if(!flag){
+                System.out.println("不支持该中文章节号转英文:"+chineseNumber);
+                throw new Exception();
+            }
+        }
+
+
         for (int i = 0; i < chineseNumber.length(); i++) {
             boolean b = true;//判断是否是chArr
             char c = chineseNumber.charAt(i);
@@ -84,7 +109,7 @@ public class DigitUtils {
         return result;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) throws Exception {
         String[] inputs = {"两千万","两亿两万"};
         for(String input:inputs){
             System.out.println(chineseNumber2Int(input));

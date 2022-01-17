@@ -9,17 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="工具完全颠覆失败，手动回，希望待测试啊">
-      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/RenameChapterToNumService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/输入/剑碎星辰-1-1200章-客户原稿/第一章 韩家少主.txt" afterDir="false" />
+    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="工具10">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserController/target/classes/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserController/target/classes/org/imc/dubbo/FilterFilesRemoteService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserController/target/classes/org/imc/dubbo/impl/FilterFilesRemoteServiceImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/DigitUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/tools/DigitUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserService/target/classes/org/imc/service/nancy/FilterFilesService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/输入/中文/狱神-原文至805章.docx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/输入/术语表.xlsx" beforeDir="false" />
     </list>
@@ -214,11 +206,11 @@
     </configuration>
     <list>
       <item itemvalue="Application.WordHighLightService" />
+      <item itemvalue="Application.DigitUtils" />
       <item itemvalue="JUnit.AmlParserServiceTest.parseAml" />
       <item itemvalue="JUnit.XmlParserServiceTest.parseXml" />
       <item itemvalue="JUnit.XmlParserServiceTest.testParseXml" />
       <item itemvalue="Spring Boot.XmlParserWebApplication" />
-      <item itemvalue="Application.DigitUtils" />
     </list>
     <recent_temporary>
       <list>
@@ -319,7 +311,8 @@
       <workItem from="1641959661365" duration="26000" />
       <workItem from="1641959702514" duration="451000" />
       <workItem from="1642403529190" duration="12000" />
-      <workItem from="1642403555106" duration="7723000" />
+      <workItem from="1642403555106" duration="7979000" />
+      <workItem from="1642411879632" duration="854000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -643,7 +636,14 @@
       <option name="project" value="LOCAL" />
       <updated>1641825838080</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="工具10">
+      <created>1642411598386</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1642411598386</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -679,7 +679,8 @@
     <MESSAGE value="新工具8" />
     <MESSAGE value="工具1更新" />
     <MESSAGE value="工具完全颠覆失败，手动回，希望待测试啊" />
-    <option name="LAST_COMMIT_MESSAGE" value="工具完全颠覆失败，手动回，希望待测试啊" />
+    <MESSAGE value="工具10" />
+    <option name="LAST_COMMIT_MESSAGE" value="工具10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
