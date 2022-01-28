@@ -26,6 +26,7 @@ public class XmlParserWebApplication {
         System.out.println("8 —————给txt卷章编号");
         System.out.println("9 —————高亮术语   需要,\"输入\\术语表.xlsx\" 和 \"输入\\中文\"………… 和 \"输入\\英文\"…………");
         System.out.println("10 ————根据章节号重命名文件 如：第一千章 盘古开天地.txt ->01000 盘古开天地.txt");
+        System.out.println("11 ————文档拆分工具， 根据##与它之前的第2个和第3个回车之间的title");
         Scanner lll = new Scanner(System.in);
         int x = lll.nextInt();
         switch (x) {
@@ -77,9 +78,14 @@ public class XmlParserWebApplication {
                 wordHighLightService.highLight("输入");
                 break;
             case 10:
-                // 9.重命名文件（根据章节号）
+                // 10.重命名文件（根据章节号）
                 RenameChapterToNumService renameChapterToNumService = new RenameChapterToNumService();
                 renameChapterToNumService.rename("输入");
+                break;
+            case 11:
+                // 11.文档拆分
+                SplitFileService splitFileService = new SplitFileService();
+                splitFileService.split("输入");
                 break;
                 default:
                 break;
