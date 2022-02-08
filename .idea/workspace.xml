@@ -9,12 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="工具10">
-      <change afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SplitFileService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/输入/样例1-不含卷-修真301-350章-待拆分.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/输入/样例2-含卷-药鼎仙途-301-350章-待拆分.docx" afterDir="false" />
+    <list default="true" id="6f10e0fb-2d1a-4e98-ac22-881755e620b8" name="Changes" comment="工具11">
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/xmlparserweb_jar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/xmlparserweb_jar.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/java/org/imc/XmlParserWebApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/FilterFilesService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/FilterFilesService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SplitFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SplitFileService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserService/target/classes/org/imc/service/nancy/FilterFilesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserService/target/classes/org/imc/service/nancy/FilterFilesService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/XmlParserWeb/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +69,7 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/XmlParserStart/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/输入" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
@@ -76,8 +78,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\小朋友留德\Desktop\过滤APP" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入" />
+      <recent name="C:\Users\小朋友留德\Desktop\过滤APP" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\输入\中文" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\out\artifacts\xmlparserweb_jar" />
       <recent name="C:\Users\小朋友留德\Desktop\过滤APP\结算\11月18日" />
@@ -315,7 +317,12 @@
       <workItem from="1642403555106" duration="7979000" />
       <workItem from="1642411879632" duration="1105000" />
       <workItem from="1643333730952" duration="15000" />
-      <workItem from="1643333762371" duration="7218000" />
+      <workItem from="1643333762371" duration="7403000" />
+      <workItem from="1643342545411" duration="515000" />
+      <workItem from="1643343155702" duration="979000" />
+      <workItem from="1643346433720" duration="1177000" />
+      <workItem from="1644285659008" duration="29000" />
+      <workItem from="1644285704041" duration="3913000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <created>1632474358259</created>
@@ -653,7 +660,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642412898142</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="工具11">
+      <created>1643342373907</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1643342373907</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -690,7 +704,8 @@
     <MESSAGE value="工具1更新" />
     <MESSAGE value="工具完全颠覆失败，手动回，希望待测试啊" />
     <MESSAGE value="工具10" />
-    <option name="LAST_COMMIT_MESSAGE" value="工具10" />
+    <MESSAGE value="工具11" />
+    <option name="LAST_COMMIT_MESSAGE" value="工具11" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -712,8 +727,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/XmlParserService/src/main/java/org/imc/service/nancy/SplitFileService.java</url>
-          <line>84</line>
-          <option name="timeStamp" value="29" />
+          <line>144</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

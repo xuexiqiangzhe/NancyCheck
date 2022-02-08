@@ -1,14 +1,11 @@
 package org.imc.service.nancy;
 
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.map.LinkedMap;
 import org.apache.maven.surefire.shade.org.apache.commons.lang3.tuple.Pair;
 import org.apache.poi.xwpf.extractor.XWPFWordExtractor;
 import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.imc.tools.CommonTool;
-import org.imc.tools.DigitUtils;
 import org.imc.tools.FileExportUtil;
-import org.imc.tools.NumberTool;
 import org.springframework.stereotype.Component;
 
 import java.io.*;
@@ -64,6 +61,7 @@ public class SplitFileService {
                 String fileName= filePath[filePath.length-1];
                 splitDoc(doc,fileName);
             } catch (Exception e) {
+                e.printStackTrace();
                 CommonTool.enterKeyContinue("中途，读取Docx失败，请联系程序员");
             }
         }
@@ -72,12 +70,18 @@ public class SplitFileService {
         for(Map.Entry<String,List<FileGenerated>> entry:fileGeneratedMap.entrySet()){
            String fileName = entry.getKey();
            List<FileGenerated> fileGenerateds = entry.getValue();
+           Set<String> rowTitle = new HashSet<>();
             for(int i =0;i<fileGenerateds.size();i++){
                 FileGenerated fileGenerated = fileGenerateds.get(i);
                 String outFileName = fileGenerated.fileName;
                 if(outFileName==null){
                     errorPositions.add(Pair.of(fileName,fileGenerated.rowTitle));
                 }
+                String rowT = fileGenerated.rowTitle;
+                if(rowTitle.contains(rowT)){
+                    errorPositions.add(Pair.of(fileName,fileGenerated.rowTitle));
+                }
+                rowTitle.add(rowT);
             }
         }
 
@@ -133,9 +137,14 @@ public class SplitFileService {
         for(int i = 0;i<jinBegin.size();i++){
             Integer jin = jinBegin.get(i);
             if(doc.charAt(jin-1)=='\n'&&doc.charAt(jin-2)=='\n'){
-               Integer titleIndex = buildTitleIndex(doc, jin);
-               String title = doc.substring(titleIndex,jin-2);
-               chapters.add(new Chapter(titleIndex,title));
+                try {
+                    Integer titleIndex = buildTitleIndex(doc, jin);
+                    String title = doc.substring(titleIndex,jin-2);
+                    chapters.add(new Chapter(titleIndex,title));
+                }catch (Exception e){
+                    errorPositions.add(Pair.of(fileName,doc.substring(jin-2,jin+1)));
+                }
+
             }else{
                 throw new Exception();
             }
@@ -148,13 +157,20 @@ public class SplitFileService {
             Integer begin = chapters.get(i).chapterStart;
             Integer end = chapters.get(i+1).chapterStart-1;
             String content = doc.substring(begin,end+1);
-            String outFileName = buildOutFileName(title);
-            fileGenerateds.add(new FileGenerated(title,outFileName,content,"输出\\"+fileName+"\\"+outFileName+".docx"));
+            try{
+                String outFileName = parseFileName(title);
+                fileGenerateds.add(new FileGenerated(title,outFileName,content,"输出\\"+fileName+"\\"+outFileName+".docx"));
+            } catch (Exception e){
+            errorPositions.add(Pair.of(fileName,title));
+           }
         }
         fileGeneratedMap.put(fileName,fileGenerateds);
     }
 
-    private Integer buildTitleIndex(String doc, Integer jin) {
+    private Integer buildTitleIndex(String doc, Integer jin) throws Exception {
+        if(doc.charAt(jin-1)!='\n'||doc.charAt(jin-2)!='\n'){
+            throw new Exception();
+        }
         Integer titleIndex = jin -3;
         for(; titleIndex >=0; titleIndex--){
             if(doc.charAt(titleIndex)!='\n'&& titleIndex !=0){
@@ -168,7 +184,7 @@ public class SplitFileService {
         return titleIndex;
     }
 
-    private String buildOutFileName(String title) {
+    private String parseFileName(String title) {
         if ("Volume".equals(title.substring(0, 6))) {
             int i = 7;
             for (; i < title.length(); i++) {
@@ -196,9 +212,12 @@ public class SplitFileService {
                     break;
                 }
             }
-            Integer chapter = Integer.parseInt(title.substring(8, j));
-            String chapterString = transTo4Bit(chapter);
-            return chapterString+" 第"+chapter+"章";
+
+                Integer chapter = Integer.parseInt(title.substring(8, j));
+                String chapterString = transTo4Bit(chapter);
+                return chapterString+" 第"+chapter+"章";
+
+
         }
         return null;
     }
