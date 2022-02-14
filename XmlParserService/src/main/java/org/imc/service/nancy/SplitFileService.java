@@ -115,7 +115,7 @@ public class SplitFileService {
                 FileGenerated fileGenerated = fileGenerateds.get(i);
                 String content = fileGenerated.content;
                 String outFilePath = fileGenerated.outFilePath;
-                FileExportUtil.exportDocx(outFilePath,content);
+                FileExportUtil.exportSpecificDocx(outFilePath,content);
             }
         }
 
